@@ -1,8 +1,8 @@
-// primitives: numbers, strings, booleans
-// complex types: arrays, objects
-// function types, parameters
+// Primitives: numbers, strings, booleans
+// Complex types: arrays, objects
+// Function types, parameters
 
-// primitive types (start in lowercase): 
+// Primitive Types (start in lowercase): 
 
 let age: number;
 // let age: number = 22;
@@ -18,23 +18,25 @@ isFinanciallyAbundant = true;
 let hobbies: null;
 // hobbies = 'sleep' (not assignable to 'null')
 
-// array types:
+// Array Types:
 
 let faves: string[];    // can only be an array of strings
 faves = ['my bed', 'access to food', 'comfort'];
 
-// object types:
+// Object Types:
 
 // let person;
 // default 'any' type allows for all types; 
 // a fallback type (not advised, it's standard JS now)
 
+// Type Aliases: 
+// 'type' is pure TS and will be thrown out when JS complied
+// only have to define types once
 type Person = {
   name: string,
   age: number
 }
-// 'type' is pure TS and will be thrown out when JS complied
-// only have to define types once
+
 let person: Person; 
 
 // type assignment 'object type definition' 
@@ -53,7 +55,7 @@ person = {
 let people: Person[]; 
 // store an array of person objects
 
-// type inference: 
+// Type Inference: 
 let course = 'React - The Complete Guide';
 
 // course = 12345; 
@@ -61,12 +63,28 @@ let course = 'React - The Complete Guide';
 // TS tries to infer which types are being used if not set
 // then uses that value type as an inferred type for the variable
 
-// union types: allow more than one type (as many as needed)
+// Union Types: allow more than one type (as many as needed)
 
 let book: string | number = 'React - The Complete Guide';
 book = 12345
 // can use wherever you're using type assignment
 let user: string | string[];
+
+// Functions & Types 
+function add(a:number, b:number) {
+  return a + b;
+};
+// the return value is inferred bc it sees the parameters have type numbers 
+// can explicitly set return type:
+  // function add(a:number, b:number): number | string
+
+function printAddFunction(value: any) {
+  console.log(value);
+};
+// it has no return statement so the return type = void (undefined), 
+// this function never returns anything
+
+
 
 
 
