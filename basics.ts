@@ -29,10 +29,14 @@ faves = ['my bed', 'access to food', 'comfort'];
 // default 'any' type allows for all types; 
 // a fallback type (not advised, it's standard JS now)
 
-let person: {
-  name: string;
-  age: number;
-}; 
+type Person = {
+  name: string,
+  age: number
+}
+// 'type' is pure TS and will be thrown out when JS complied
+// only have to define types once
+let person: Person; 
+
 // type assignment 'object type definition' 
 // defines structure of an object
 // only objects with these types can be stored 
@@ -46,10 +50,7 @@ person = {
 // } 
 // will not be stored since types are declared as string and number
 
-let people: {
-  name: string,
-  age: number
-}[]; 
+let people: Person[]; 
 // store an array of person objects
 
 // type inference: 
