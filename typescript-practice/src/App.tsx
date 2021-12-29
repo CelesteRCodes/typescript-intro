@@ -5,7 +5,7 @@ import Todos from './components/Todos';
 function App() {
   return (
     <div>
-      <Todos />
+      <Todos items={['Land new job', 'Take a nap']}/>
     </div>
   );
 }
