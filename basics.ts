@@ -84,6 +84,34 @@ function printAddFunction(value: any) {
 // it has no return statement so the return type = void (undefined), 
 // this function never returns anything
 
+// Generics:
+// function insertAtBeginning(array: any[], value: any){ // set array to an array of any type
+//   const newArray = [value, ...array];
+//   return newArray;
+// }
+//   const demoArray = [1, 2, 3]; // TS doesn't see this as an array of numbers bc type = any
+
+//   const updatedArray = insertAtBeginning(demoArray, -1); // [-1, 1, 2, 3]
+
+//   updatedArray[0].split(''); 
+//   // throws runtime error bc can't call split on a string 
+//   //but TS doesn't see it as a string
+
+function insertAtBeginning<T>(array: T[], value: T){ // type of array and value should be the same with this syntax
+  const newArray = [value, ...array];
+  return newArray;
+}
+  const demoArray = [1, 2, 3]; // TS doesn't see this as an array of numbers bc type = any
+
+  const updatedArray = insertAtBeginning(demoArray, -1); // [-1, 1, 2, 3]
+  const stringArray = insertAtBeginning(['a', 'b'], 'd');
+
+  // updatedArray[0].split(''); 
+  // throws (runtime) error bc can't call split on a string 
+  //but TS doesn't see it as a string
+  stringArray[0].split('');
+
+
 
 
 
